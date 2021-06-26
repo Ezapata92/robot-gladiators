@@ -67,10 +67,10 @@ var fight = function(enemy) {
         window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
       }
     }
-  };
+};
   
-  // function to start a new game
-  var startGame = function() {
+// function to start a new game
+var startGame = function() {
     // reset player stats
     playerInfo.reset();
   
@@ -80,7 +80,7 @@ var fight = function(enemy) {
       if (playerInfo.health > 0) {
         // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
         window.alert('Welcome to Robot Gladiators! Round ' + (i + 1));
-  
+    
         // pick new enemy to fight based on the index of the enemyInfo array
         var pickedEnemyObj = enemyInfo[i];
   
@@ -110,10 +110,10 @@ var fight = function(enemy) {
   
     // after loop ends, we are either out of player.health or enemies to fight, so run the endGame function
     endGame();
-  };
+};
   
-  // function to end the entire game
-  var endGame = function() {
+// function to end the entire game
+var endGame = function() {
     window.alert("The game has now ended. Let's see how you did!");
   
     // if player is still alive, player wins!
@@ -131,10 +131,10 @@ var fight = function(enemy) {
     } else {
       window.alert('Thank you for playing Robot Gladiators! Come back soon!');
     }
-  };
+};
   
-  // go to shop between battles function
-  var shop = function() {
+// go to shop between battles function
+var shop = function() {
     // ask player what they'd like to do
     var shopOptionPrompt = window.prompt(
       'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
@@ -163,15 +163,23 @@ var fight = function(enemy) {
         shop();
         break;
     }
-  };
+};
+/* END GAME FUNCTIONS */
   
-  /* END GAME FUNCTIONS */
+//function to set name
+var getPlayerName = function(){
+    var name= "";
+
+    while (name === ""|| name === null){
+        name = prompt("what is your robot's name?");
+    }
+    console.log ("Your robot's name is " + name);
+    return name;
+};
   
-  /* GAME INFORMATION / VARIABLES */
-  
-  // player information
-  var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+// player information
+var playerInfo = {
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10,
@@ -200,10 +208,10 @@ var fight = function(enemy) {
         window.alert("You don't have enough money!");
       }
     }
-  };
+};
   
-  // enemy information
-  var enemyInfo = [
+// enemy information
+var enemyInfo = [
     {
       name: 'Roborto',
       attack: randomNumber(10, 14)
@@ -216,15 +224,15 @@ var fight = function(enemy) {
       name: 'Robo Trumble',
       attack: randomNumber(10, 14)
     }
-  ];
+];
   
-  console.log(enemyInfo);
-  console.log(enemyInfo[0]);
-  console.log(enemyInfo[0].name);
-  console.log(enemyInfo[0]['attack']);
+console.log(enemyInfo);
+console.log(enemyInfo[0]);
+console.log(enemyInfo[0].name);
+console.log(enemyInfo[0]['attack']);
   
-  /* END GAME INFORMATION / VARIABLES */
+/* END GAME INFORMATION / VARIABLES */
   
-  /* RUN GAME */
-  startGame();
+/* RUN GAME */
+startGame();
   
